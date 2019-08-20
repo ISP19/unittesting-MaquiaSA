@@ -1,6 +1,6 @@
 ## Unit Testing Assignment
 
-by Bill Gates.
+by Anant Arayanant.
 
 
 ## Test Cases for unique
@@ -80,6 +80,15 @@ by Bill Gates.
 | Normal Fractions > Positive 0-denominator Fractions | False            |
 | Negaive 0-denominator Fractions > Normal Fractions  | False            |
 | Normal Fractions > Negative 0-denominator Fractions | True             |
+
+
+**Test Cases for `__neg__`**
+
+| Test case              |  Expected Result  |
+|------------------------|-------------------|
+| Any Positive Fraction  | Negative Fraction |
+| Any Negative Fraction  | Positive Fraction |
+| Zero                   | Zero              |
 
 
 **Test Cases for `__eq__`**

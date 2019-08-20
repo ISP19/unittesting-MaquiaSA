@@ -88,7 +88,7 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(-1, 0), Fraction(-3, 0) - Fraction(-1, 4))
         # 0/0(ValueError) = 1/0 - 8/0
         with self.assertRaises(ValueError):
-            Fraction(1, 0) + Fraction(8, 0)
+            Fraction(1, 0) - Fraction(8, 0)
     
     def test_mul(self):
         # 3/16 = 1/2 * 3/8
@@ -127,6 +127,15 @@ class FractionTest(unittest.TestCase):
         self.assertTrue(Fraction(1, 0)> Fraction(110000))
         # 1/10000 > -200/0
         self.assertTrue(Fraction(1, 10000) > Fraction(-200, 0))
+    
+    def test_neg(self):
+        self.assertEqual(Fraction(-4, 25), Fraction(4, 25).__neg__())
+        self.assertEqual(Fraction(2, 17), Fraction(-2, 17).__neg__())
+        self.assertEqual(Fraction(-11, 13), Fraction(-11, -13).__neg__())
+        self.assertEqual(Fraction(-3, -8), Fraction(3, -8).__neg__())
+        self.assertEqual(Fraction(-1, 0), Fraction(1, 0).__neg__())
+        self.assertEqual(Fraction(2, 0), Fraction(-2, 0).__neg__())
+        self.assertEqual(Fraction(0, 10), Fraction(0, 10).__neg__())
 
     def test_eq(self):
         f = Fraction(1, 2)

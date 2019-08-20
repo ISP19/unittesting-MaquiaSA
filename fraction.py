@@ -61,6 +61,10 @@ class Fraction:
            (a/b > c/d if ad > bc, b and d != 0)
         """
         return self.numerator * frac.denominator > frac.numerator * self.denominator
+    
+    def __neg__(self):
+        """Return negative form fraction of itself."""
+        return self * Fraction(-1)
 
 
     #TODO write __mul__ and __str__.  Verify __eq__ works with your code.
