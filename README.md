@@ -18,6 +18,7 @@ by Bill Gates.
 
 ## Test Cases for Fraction
 **Test Cases for `__init__`**
+
 | Test case                                     |  Expected Result |
 |-----------------------------------------------|------------------|
 | non-zero-int Numerator and non-zero-int Denominator |  Fraction(`numerator`, `denominator`) |
@@ -26,6 +27,7 @@ by Bill Gates.
 
 
 **Test Cases for `__str__`**
+
 | Test case                                     |  Expected Result |
 |-----------------------------------------------|------------------|
 | int Numerator and int Denominator(not 0 or 1) |  `numerator`/`denominator` in Proper Fraction Form |
@@ -36,6 +38,7 @@ by Bill Gates.
 
 
 **Test Cases for `__add__`**
+
 | Test case                                         |  Expected Result         |
 |---------------------------------------------------|--------------------------|
 | Normal Fractions (Positive/Negative) add together | Proper Positive Fraction |
@@ -46,6 +49,7 @@ by Bill Gates.
 
 
 **Test Cases for `__sub__`**
+
 | Test case                                         |  Expected Result         |
 |---------------------------------------------------|--------------------------|
 | Normal Fractions (Positive/Negative) subtract together | Proper Positive/Negative Fraction |
@@ -56,6 +60,7 @@ by Bill Gates.
 
 
 **Test Cases for `__eq__`**
+
 | Test case                            |  Expected Result |
 |--------------------------------------|------------------|
 | Fractions with same Proper Form      | True             |
