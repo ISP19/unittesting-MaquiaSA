@@ -55,6 +55,12 @@ class Fraction:
         new_numerator = self.numerator * frac.numerator
         new_denominator = self.denominator * frac.denominator
         return Fraction(new_numerator, new_denominator)
+    
+    def __gt__(self, frac):
+        """Return True if one fraction is greater than the other. 
+           (a/b > c/d if ad > bc, b and d != 0)
+        """
+        return self.numerator * frac.denominator > frac.numerator * self.denominator
 
 
     #TODO write __mul__ and __str__.  Verify __eq__ works with your code.

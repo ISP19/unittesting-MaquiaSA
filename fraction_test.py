@@ -107,6 +107,26 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(-1, 0), Fraction(1, 7) * Fraction(-3, 0))
         # 1/0 = -2/3 * -1/0
         self.assertEqual(Fraction(1, 0), Fraction(-2, 0) * Fraction(-1, 0))
+    
+    def test_gt(self):
+        # 2/7 > 8/29
+        self.assertTrue(Fraction(2, 7) > Fraction(8, 29))
+        # -3/6 > -4/10
+        self.assertTrue(Fraction(-3, 6) > Fraction(4, -7))
+        # -7/-21 > 8/27
+        self.assertTrue(Fraction(-7, -21) > Fraction(1, 4))
+        # 4/2 == 2
+        self.assertFalse(Fraction(4, 2) > Fraction(2, 1))
+        # 0/7 == 0/4
+        self.assertFalse(Fraction(0, 7) > Fraction(0, 4))
+        # 199/200 < 199/199
+        self.assertFalse(Fraction(199, 200) > Fraction(199, 199))
+        # -99/100 < -98/100
+        self.assertFalse(Fraction(-99, 100) > Fraction(-98, 100))
+        # 1/0 > 110000
+        self.assertTrue(Fraction(1, 0)> Fraction(110000))
+        # 1/10000 > -200/0
+        self.assertTrue(Fraction(1, 10000) > Fraction(-200, 0))
 
     def test_eq(self):
         f = Fraction(1, 2)

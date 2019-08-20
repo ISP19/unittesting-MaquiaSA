@@ -21,7 +21,7 @@ by Bill Gates.
 
 | Test case                                     |  Expected Result |
 |-----------------------------------------------|------------------|
-| non-zero-int Numerator and non-zero-int Denominator |  Fraction(`numerator`, `denominator`) |
+| non-zero-int Numerator and non-zero-int Denominator |  Fraction(`numerator`, `denominator`) (stored in proper fraction form) |
 | Numerator and Denominator equal to Zero (0/0) |  ValueError      |
 | Non-int Numerator or Denominator              |  TypeError       |
 
@@ -67,6 +67,19 @@ by Bill Gates.
 | Fractions and Zero                           | 0                   |
 | 0-denominator Fractions and Normal Fractions | 1/0 or -1/0         |
 | 0-denominator Fractions multiply together    | 1/0 or -1/0         |
+
+
+**Test Cases for `__gt__`**
+
+| Test case                                           |  Expected Result |
+|-----------------------------------------------------|------------------|
+| Larger Fraction > Smaller Fraction                  | True             |
+| Smaller Fraction > Larger Fraction                  | False            |
+| Same Proper Fraction > Same Proper Fraction         | False            |
+| Positive 0-denominator Fractions > Normal Fractions | True             |
+| Normal Fractions > Positive 0-denominator Fractions | False            |
+| Negaive 0-denominator Fractions > Normal Fractions  | False            |
+| Normal Fractions > Negative 0-denominator Fractions | True             |
 
 
 **Test Cases for `__eq__`**
