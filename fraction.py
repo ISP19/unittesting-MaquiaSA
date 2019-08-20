@@ -22,6 +22,8 @@ class Fraction:
         self.denominator = int(denominator/gcd)
 
     def __str__(self):
+        if self.denominator == 0:
+            return 'Fraction is undefined.'
         if self.denominator == 1 or self.numerator == 0:
             return '{0}'.format(int(self.numerator/self.denominator))
         return '{0}/{1}'.format(self.numerator, self.denominator)
@@ -44,4 +46,6 @@ class Fraction:
            Fractions are stored in proper form so the internal representation
            is unique (3/6 is same as 1/2).
         """
+        if self.denominator == 0 and frac.denominator == 0:
+            return True
         return self.numerator == frac.numerator and self.denominator == frac.denominator
