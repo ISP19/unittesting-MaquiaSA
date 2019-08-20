@@ -1,3 +1,5 @@
+import math
+
 class Fraction:
     """A fraction with a numerator and denominator and arithmetic operations.
 
@@ -12,8 +14,17 @@ class Fraction:
         """Initialize a new fraction with the given numerator
            and denominator (default 1).
         """
-        #TODO write this (and remove this TODO comment)
-        pass
+        gcd = math.gcd(numerator,denominator)
+        if denominator < 0:
+            numerator *= -1
+            denominator *= -1
+        self.numerator = int(numerator/gcd)
+        self.denominator = int(denominator/gcd)
+
+    def __str__(self):
+        if self.denominator == 1 or self.numerator == 0:
+            return '{0}'.format(int(self.numerator/self.denominator))
+        return '{0}/{1}'.format(self.numerator, self.denominator)
 
     #TODO Write the __add__ method, and remove this TODO comment.
     def __add__(self, frac):
