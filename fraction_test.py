@@ -91,7 +91,22 @@ class FractionTest(unittest.TestCase):
             Fraction(1, 0) + Fraction(8, 0)
     
     def test_mul(self):
-        self.assertEqual(Fraction(3,16), Fraction(1, 2) * Fraction(3, 8))
+        # 3/16 = 1/2 * 3/8
+        self.assertEqual(Fraction(3, 16), Fraction(1, 2) * Fraction(3, 8))
+        # -1/2 = -1/4 * 2
+        self.assertEqual(Fraction(-1, 2), Fraction(1, -4) * Fraction(2))
+        # -7/5 = 4/5 * -7/4
+        self.assertEqual(Fraction(-7, 5), Fraction(4, 5) * Fraction(-7, 4))
+        # 6 = -1/4 * -24
+        self.assertEqual(Fraction(6), Fraction(-1, 4) * Fraction(-24))
+        # 0 = 0/5 * -1/4
+        self.assertEqual(Fraction(0), Fraction(0, 5) * Fraction(-1, 4))
+        # 1/0 = 2/0 * 3/4
+        self.assertEqual(Fraction(1, 0), Fraction(2, 0) * Fraction(3, 4))
+        # -1/0 = 1/7 * -3/0
+        self.assertEqual(Fraction(-1, 0), Fraction(1, 7) * Fraction(-3, 0))
+        # 1/0 = -2/3 * -1/0
+        self.assertEqual(Fraction(1, 0), Fraction(-2, 0) * Fraction(-1, 0))
 
     def test_eq(self):
         f = Fraction(1, 2)

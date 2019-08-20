@@ -59,6 +59,16 @@ by Bill Gates.
 | 0-denominator Fractions subtract together         | ValueError               |
 
 
+**Test Cases for `__mul__`**
+
+| Test case                                    |  Expected Result    |
+|----------------------------------------------|---------------------|
+| Normal Fractions (Positive/Negative) multiply together | Proper Positive/Negative Fraction |
+| Fractions and Zero                           | 0                   |
+| 0-denominator Fractions and Normal Fractions | 1/0 or -1/0         |
+| 0-denominator Fractions multiply together    | 1/0 or -1/0         |
+
+
 **Test Cases for `__eq__`**
 
 | Test case                            |  Expected Result |
