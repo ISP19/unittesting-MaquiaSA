@@ -7,6 +7,11 @@ from fraction import Fraction
 class FractionTest(unittest.TestCase):
     """Test the methods and constructor of the Fraction class. """
 
+    def test_init(self):
+        with self.assertRaises(ValueError):
+            f = Fraction(0, 0)
+
+
     def test_str(self):
         f = Fraction(3, -1)
         self.assertEqual("-3", f.__str__())
@@ -45,6 +50,13 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(-4, 5), Fraction(-1, 10) + Fraction(-3, 10) + Fraction(-2, 5))
         # 1/3 = 2/6 + 0/5
         self.assertEqual(Fraction(1, 3), Fraction(2, 6) + Fraction(0, 5))
+        # 1/0 = -7/8 + 4/0
+        self.assertEqual(Fraction(1, 0), Fraction(-7, 8) + Fraction(4, 0))
+        # -1/0 = 3/5 + (-2/0)
+        self.assertEqual(Fraction(-1, 0), Fraction(3, 5) + Fraction(-2, 0))
+        # 0/0(ValueError) = 4/0 + (-1/0)
+        with self.assertRaises(ValueError):
+            Fraction(4, 0) + Fraction(-1, 0)
     
     def test_sub(self):
         # 1/5 = 1 - 4/5
@@ -59,6 +71,20 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(2, 7), Fraction(2, 7) - Fraction(0, 3))
         # 0 = 0/2 - 0/6
         self.assertEqual(Fraction(0), Fraction(0, 2) - Fraction(0, 6))
+        # -1/0 = 7/8 - 4/0
+        self.assertEqual(Fraction(-1, 0), Fraction(7, 8) - Fraction(4, 0))
+        # 1/0 = 3/5 - (-2/0)
+        self.assertEqual(Fraction(1, 0), Fraction(3, 5) - Fraction(-2, 0))
+        # -1/0 = 7/0 - 2/7
+        self.assertEqual(Fraction(1, 0), Fraction(7, 0) - Fraction(2, 7))
+        # 1/0 = -3/0 - (-1/4)
+        self.assertEqual(Fraction(-1, 0), Fraction(-3, 0) - Fraction(-1, 4))
+        # 0/0(ValueError) = 1/0 - 8/0
+        with self.assertRaises(ValueError):
+            Fraction(1, 0) + Fraction(8, 0)
+    
+    def test_mul(self):
+        self.assertEqual(Fraction(3,16), Fraction(1, 2) * Fraction(3, 8))
 
     def test_eq(self):
         f = Fraction(1, 2)
@@ -84,6 +110,3 @@ class FractionTest(unittest.TestCase):
         self.assertTrue(f == g)
         self.assertFalse(f == h)
         self.assertTrue(h == i)
-        f = Fraction(0, 0)
-        g = Fraction(0, 0)
-        self.assertTrue(f == g)

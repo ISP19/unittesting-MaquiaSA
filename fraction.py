@@ -14,16 +14,22 @@ class Fraction:
         """Initialize a new fraction with the given numerator
            and denominator (default 1).
         """
-        try:
+        if numerator == 0 and denominator == 0:
+            raise ValueError
+        elif not isinstance(numerator, int):
+            raise TypeError
+        elif not isinstance(denominator, int):
+            raise TypeError
+        else:
             gcd = math.gcd(numerator,denominator)
             if denominator < 0:
                 numerator *= -1
                 denominator *= -1
             self.numerator = int(numerator/gcd)
             self.denominator = int(denominator/gcd)
-        except:
-            self.numerator = numerator
-            self.denominator = denominator
+        # except:
+        #     self.numerator = numerator
+        #     self.denominator = denominator
 
 
     def __str__(self):
@@ -37,6 +43,8 @@ class Fraction:
         """
         new_numerator = self.numerator * frac.denominator + frac.numerator * self.denominator
         new_denominator = self.denominator * frac.denominator
+        if new_numerator == 0 and new_denominator == 0:
+            raise ValueError
         return Fraction(new_numerator, new_denominator)
     
     def __sub__(self, frac):
@@ -44,6 +52,13 @@ class Fraction:
         new_numerator = self.numerator * frac.denominator - frac.numerator * self.denominator
         new_denominator = self.denominator * frac.denominator
         return Fraction(new_numerator, new_denominator)
+    
+    def __mul__(self, frac):
+        """Return the multipication of two fractions as a new fraction."""
+        new_numerator = self.numerator * frac.numerator
+        new_denominator = self.denominator * frac.denominator
+        return Fraction(new_numerator, new_denominator)
+
 
     #TODO write __mul__ and __str__.  Verify __eq__ works with your code.
     #Optional have fun and overload other operators such as 
