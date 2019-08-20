@@ -45,6 +45,20 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(-4, 5), Fraction(-1, 10) + Fraction(-3, 10) + Fraction(-2, 5))
         # 1/3 = 2/6 + 0/5
         self.assertEqual(Fraction(1, 3), Fraction(2, 6) + Fraction(0, 5))
+    
+    def test_sub(self):
+        # 1/5 = 1 - 4/5
+        self.assertEqual(Fraction(1, 5), Fraction(1) - Fraction(4, 5))
+        # -1 = -2/3 - 7/8
+        self.assertEqual(Fraction(-1), Fraction(-2, 3) - Fraction(7, 8) - Fraction(-13, 24))
+        # 9/8 = 5/8 - (-1/2)
+        self.assertEqual(Fraction(9, 8), Fraction(5, 8) - Fraction(-1, 2))
+        # -3/4 = 0 - 3/4
+        self.assertEqual(Fraction(-3, 4), Fraction(0) - Fraction(3, 4))
+        # 2/7 = 2/7 - 0/3
+        self.assertEqual(Fraction(2, 7), Fraction(2, 7) - Fraction(0, 3))
+        # 0 = 0/2 - 0/6
+        self.assertEqual(Fraction(0), Fraction(0, 2) - Fraction(0, 6))
 
     def test_eq(self):
         f = Fraction(1, 2)

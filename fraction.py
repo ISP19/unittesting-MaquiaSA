@@ -31,12 +31,17 @@ class Fraction:
             return '{0}'.format(int(self.numerator/self.denominator))
         return '{0}/{1}'.format(self.numerator, self.denominator)
 
-    #TODO Write the __add__ method, and remove this TODO comment.
     def __add__(self, frac):
         """Return the sum of two fractions as a new fraction.
            Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
         """
         new_numerator = self.numerator * frac.denominator + frac.numerator * self.denominator
+        new_denominator = self.denominator * frac.denominator
+        return Fraction(new_numerator, new_denominator)
+    
+    def __sub__(self, frac):
+        """Return the difference of two fractions as a new fraction."""
+        new_numerator = self.numerator * frac.denominator - frac.numerator * self.denominator
         new_denominator = self.denominator * frac.denominator
         return Fraction(new_numerator, new_denominator)
 
