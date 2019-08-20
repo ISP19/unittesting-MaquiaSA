@@ -27,9 +27,6 @@ class Fraction:
                 denominator *= -1
             self.numerator = int(numerator/gcd)
             self.denominator = int(denominator/gcd)
-        # except:
-        #     self.numerator = numerator
-        #     self.denominator = denominator
 
 
     def __str__(self):
@@ -72,4 +69,3 @@ class Fraction:
            is unique (3/6 is same as 1/2).
         """
         return self.numerator == frac.numerator and self.denominator == frac.denominator
-

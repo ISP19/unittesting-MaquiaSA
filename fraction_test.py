@@ -9,7 +9,14 @@ class FractionTest(unittest.TestCase):
 
     def test_init(self):
         with self.assertRaises(ValueError):
-            f = Fraction(0, 0)
+            Fraction(0, 0)
+        with self.assertRaises(TypeError):
+            Fraction(0.1, 8)
+            Fraction(12, 1.3)
+            Fraction('a', 4)
+            Fraction(18, 'b')
+            Fraction(True, 4)
+            Fraction(2, False)
 
 
     def test_str(self):
