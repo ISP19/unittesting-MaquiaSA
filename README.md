@@ -60,7 +60,7 @@ by Anant Arayanant.
 | Fractions and Zero (in order)                    | The Difference of those Fractions in Proper Form |
 | Zero and Fractions (in order)                    | Negative Form of the Difference of those Fractions in Proper Form |
 | Infinity and Normal Fractions                    | 1/0 or -1/0           |
-| Negative Infinity Fractions and Normal Fractions | 1/0 or -1/0           |
+| Negative Infinity and Normal Fractions           | 1/0 or -1/0           |
 | Infinity or Negative Infinity subtract together  | 0/0                   |
 
 

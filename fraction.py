@@ -18,9 +18,9 @@ class Fraction:
             self.numerator = 0
             self.denominator = 0
         elif not isinstance(numerator, int):
-            raise TypeError
+            raise TypeError("Numerator must be integer.")
         elif not isinstance(denominator, int):
-            raise TypeError
+            raise TypeError("Denominator must be integer.")
         else:
             gcd = math.gcd(numerator,denominator)
             if denominator < 0:

@@ -16,7 +16,7 @@ def unique(lst):
     []
     """
     if not isinstance(lst, list):
-        raise TypeError
+        raise TypeError("Input must be list.")
     else:
         unique_list = []
         for element in lst:
