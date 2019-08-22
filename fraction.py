@@ -17,8 +17,12 @@ class Fraction:
         if numerator == 0 and denominator == 0:
             self.numerator = 0
             self.denominator = 0
+        elif isinstance(numerator, bool):
+            raise TypeError("Numerator must be integer.")
         elif not isinstance(numerator, int):
             raise TypeError("Numerator must be integer.")
+        elif isinstance(denominator, bool):
+            raise TypeError("Denominator must be integer.")
         elif not isinstance(denominator, int):
             raise TypeError("Denominator must be integer.")
         else:
