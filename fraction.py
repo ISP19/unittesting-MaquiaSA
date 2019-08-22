@@ -15,7 +15,8 @@ class Fraction:
            and denominator (default 1).
         """
         if numerator == 0 and denominator == 0:
-            raise ValueError
+            self.numerator = 0
+            self.denominator = 0
         elif not isinstance(numerator, int):
             raise TypeError
         elif not isinstance(denominator, int):
@@ -30,6 +31,11 @@ class Fraction:
 
 
     def __str__(self):
+        """Return the string in form "a/b" when a is numerator and b is denominator.
+        (or "a" when a equals to 0 or "b" equals to 1)
+        """
+        if self.numerator == 0 and self.denominator == 0:
+            return '{0}/{1}'.format(self.numerator, self.denominator)
         if self.denominator == 1 or self.numerator == 0:
             return '{0}'.format(int(self.numerator/self.denominator))
         return '{0}/{1}'.format(self.numerator, self.denominator)
@@ -40,8 +46,6 @@ class Fraction:
         """
         new_numerator = self.numerator * frac.denominator + frac.numerator * self.denominator
         new_denominator = self.denominator * frac.denominator
-        if new_numerator == 0 and new_denominator == 0:
-            raise ValueError
         return Fraction(new_numerator, new_denominator)
     
     def __sub__(self, frac):
@@ -65,13 +69,6 @@ class Fraction:
     def __neg__(self):
         """Return negative form fraction of itself."""
         return self * Fraction(-1)
-
-
-    #TODO write __mul__ and __str__.  Verify __eq__ works with your code.
-    #Optional have fun and overload other operators such as 
-    # __sub__ for f-g
-    # __gt__  for f > g
-    # __neg__ for -f (negation)
 
     def __eq__(self, frac):
         """Two fractions are equal if they have the same value.

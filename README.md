@@ -19,11 +19,10 @@ by Anant Arayanant.
 ## Test Cases for Fraction
 **Test Cases for `__init__`**
 
-| Test case                                     |  Expected Result |
-|-----------------------------------------------|------------------|
-| non-zero-int Numerator and non-zero-int Denominator |  Fraction(`numerator`, `denominator`) (stored in proper fraction form) |
-| Numerator and Denominator equal to Zero (0/0) |  ValueError      |
-| Non-int Numerator or Denominator              |  TypeError       |
+| Test case                          |  Expected Result |
+|------------------------------------|------------------|
+| int Numerator and int Denominator  |  Fraction(`numerator`, `denominator`) (stored in proper fraction form) |
+| Non-int Numerator or Denominator   |  TypeError       |
 
 
 **Test Cases for `__str__`**
@@ -35,60 +34,76 @@ by Anant Arayanant.
 | Numerator = 0 and non-zero-int Denominator    |  0               |
 | Positive int Numerator and Denominator = 0    |  1/0             |
 | Negative int Numerator and Denominator = 0    |  -1/0            |
+| Numerator = 0 and Denominator = 0             |  0/0             |
 
 
 **Test Cases for `__add__`**
+
+(Infinity = 1/0, Negative Infinity = -1/0)
 
 | Test case                                         |  Expected Result         |
 |---------------------------------------------------|--------------------------|
 | Normal Fractions (Positive/Negative) add together | Proper Positive Fraction |
 | Fractions and Zero                                | The Sum of those Fractions in Proper Form |
-| Positive 0-denominator Fractions and Normal Fractions | 1/0                      |
-| Negative 0-denominator Fractions and Normal Fractions | -1/0                     |
-| 0-denominator Fractions add together              | ValueError               |
+| Infinity and Normal Fractions                     | 1/0                      |
+| Negative Infinity and Normal Fractions            | -1/0                     |
+| Infinity and Negative Infinity                    | 0/0                      |
 
 
 **Test Cases for `__sub__`**
 
-| Test case                                         |  Expected Result         |
-|---------------------------------------------------|--------------------------|
+(Infinity = 1/0, Negative Infinity = -1/0)
+
+| Test case                                        |  Expected Result      |
+|--------------------------------------------------|-----------------------|
 | Normal Fractions (Positive/Negative) subtract together | Proper Positive/Negative Fraction |
-| Fractions and Zero                                | The Difference of those Fractions in Proper Form |
-| Positive 0-denominator Fractions and Normal Fractions | 1/0 or -1/0              |
-| Negative 0-denominator Fractions and Normal Fractions | 1/0 or -1/0              |
-| 0-denominator Fractions subtract together         | ValueError               |
+| Fractions and Zero (in order)                    | The Difference of those Fractions in Proper Form |
+| Zero and Fractions (in order)                    | Negative Form of the Difference of those Fractions in Proper Form |
+| Infinity and Normal Fractions                    | 1/0 or -1/0           |
+| Negative Infinity Fractions and Normal Fractions | 1/0 or -1/0           |
+| Infinity or Negative Infinity subtract together  | 0/0                   |
 
 
 **Test Cases for `__mul__`**
+
+(Infinity = 1/0, Negative Infinity = -1/0)
 
 | Test case                                    |  Expected Result    |
 |----------------------------------------------|---------------------|
 | Normal Fractions (Positive/Negative) multiply together | Proper Positive/Negative Fraction |
 | Fractions and Zero                           | 0                   |
-| 0-denominator Fractions and Normal Fractions | 1/0 or -1/0         |
-| 0-denominator Fractions multiply together    | 1/0 or -1/0         |
+| Infinity (or Negative Infinity) and Normal Fractions | 1/0 or -1/0         |
+| Infinity (or Negative Infinity) multiply together    | 1/0 or -1/0         |
+| Infinity (or Negative Infinity) and Zero     | 0/0                 |
 
 
 **Test Cases for `__gt__`**
 
-| Test case                                           |  Expected Result |
-|-----------------------------------------------------|------------------|
-| Larger Fraction > Smaller Fraction                  | True             |
-| Smaller Fraction > Larger Fraction                  | False            |
-| Same Proper Fraction > Same Proper Fraction         | False            |
-| Positive 0-denominator Fractions > Normal Fractions | True             |
-| Normal Fractions > Positive 0-denominator Fractions | False            |
-| Negaive 0-denominator Fractions > Normal Fractions  | False            |
-| Normal Fractions > Negative 0-denominator Fractions | True             |
+(Infinity = 1/0, Negative Infinity = -1/0, NaN = 0/0)
+
+| Test case                                    |  Expected Result |
+|----------------------------------------------|------------------|
+| Larger Fraction > Smaller Fraction           | True             |
+| Smaller Fraction > Larger Fraction           | False            |
+| Same Proper Fraction > Same Proper Fraction  | False            |
+| Infinity > Normal Fractions                  | True             |
+| Normal Fractions > Infinity                  | False            |
+| Negaive Infinity > Normal Fractions          | False            |
+| Normal Fractions > Negative Infinity         | True             |
+| NaN > Any Fraction                           | False            |
+| Any Fraction > Nan                           | False            |
 
 
 **Test Cases for `__neg__`**
 
-| Test case              |  Expected Result  |
-|------------------------|-------------------|
-| Any Positive Fraction  | Negative Fraction |
-| Any Negative Fraction  | Positive Fraction |
-| Zero                   | Zero              |
+(Infinity = 1/0, Negative Infinity = -1/0, NaN = 0/0)
+
+| Test case                                  |  Expected Result  |
+|--------------------------------------------|-------------------|
+| Any Positive Fraction (including Infinity) | Negative Fraction |
+| Any Negative Fraction (including Infinity) | Positive Fraction |
+| Zero                                       | Zero              |
+| NaN                                        | NaN               |
 
 
 **Test Cases for `__eq__`**
