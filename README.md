@@ -96,14 +96,12 @@ by Anant Arayanant.
 
 **Test Cases for `__neg__`**
 
-(Infinity = 1/0, Negative Infinity = -1/0, NaN = 0/0)
-
 | Test case                                  |  Expected Result  |
 |--------------------------------------------|-------------------|
-| Any Positive Fraction (including Infinity) | Negative Fraction |
-| Any Negative Fraction (including Infinity) | Positive Fraction |
+| Any Positive Fraction (including 1/0)      | Negative Fraction |
+| Any Negative Fraction (including -1/0)     | Positive Fraction |
 | Zero                                       | Zero              |
-| NaN                                        | NaN               |
+| 0/0                                        | 0/0               |
 
 
 **Test Cases for `__eq__`**
