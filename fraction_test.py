@@ -10,10 +10,15 @@ class FractionTest(unittest.TestCase):
     def test_init(self):
         with self.assertRaises(TypeError):
             Fraction(0.1, 8)
+        with self.assertRaises(TypeError):
             Fraction(12, 1.3)
+        with self.assertRaises(TypeError):
             Fraction('a', 4)
+        with self.assertRaises(TypeError):
             Fraction(18, 'b')
+        with self.assertRaises(TypeError):
             Fraction(True, 4)
+        with self.assertRaises(TypeError):
             Fraction(2, False)
 
 
