@@ -1,5 +1,6 @@
 ## Unit Testing Assignment
 [![Build Status](https://travis-ci.com/MaquiaSA/unittesting-MaquiaSA.svg?branch=master)](https://travis-ci.com/MaquiaSA/unittesting-MaquiaSA)  
+[![codecov](https://codecov.io/gh/MaquiaSA/unittesting-MaquiaSA/branch/master/graph/badge.svg)](https://codecov.io/gh/MaquiaSA/unittesting-MaquiaSA)   
 by Anant Arayanant.
 
 
